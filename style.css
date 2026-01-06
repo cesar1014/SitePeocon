@@ -1,0 +1,90 @@
+body {
+    background-color: #F8FAFC;
+    color: #2E2E6F;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* SPA Section Transition */
+.page-section {
+    display: none;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.page-section.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Glassmorphism */
+.glass-nav {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(11, 100, 194, 0.1);
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+}
+
+.glass-earth {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid #EDE7D9;
+}
+
+/* Scroll Reveal (Substituto do AOS para o novo sistema) */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Text Gradients */
+.text-gradient-ha {
+    background: linear-gradient(135deg, #0B64C2 0%, #E31661 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Top Bar */
+.ha-brand-bar {
+    height: 6px;
+    width: 100%;
+    background: linear-gradient(90deg, #0B64C2 0%, #E31661 100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 60;
+}
+
+/* Utilities */
+.delay-100 {
+    transition-delay: 0.1s;
+}
+
+.delay-200 {
+    transition-delay: 0.2s;
+}
+
+.delay-300 {
+    transition-delay: 0.3s;
+}
+
+.delay-400 {
+    transition-delay: 0.4s;
+}
+
+.text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}

@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PEOCON | Identidade e Equidade</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Outfit:wght@300;400;500;700&family=Inter:wght@300;400;500;600&family=Sora:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        peocon: {
+                            // Cores do Código Novo (Motion)
+                            bg: '#F8FAFC',
+                            surface: '#FFFFFF',
+                            muted: '#64748B',
+                            border: '#E2E8F0',
+                            earth: '#A69080',
+                            clay: '#745E53',
+                            sand: '#EBE5DF',
+                            warm: '#F5F0EB',
+                        },
+                        ha: {
+                            pink: '#E31661',
+                            blue: '#0B64C2',
+                            dark: '#2E2E6F',
+                            light: '#4F77A7',
+                        },
+                        // Paleta Oficial Campanha Abrace a Vida (Fonte: PDF)
+                        abrace: {
+                            verde: '#0A443E',      /* Títulos / Texto Forte */
+                            roxo: '#7123E2',       /* Destaque / Logo */
+                            roxoSuave: '#F3F0FF',  /* NOVO: Fundo Claro Suave */
+                            laranja: '#FF7B57',    /* Botões / Ação */
+                            bege: '#EDE7D9',       /* Elementos de fundo */
+                            verdeClaro: '#9DD1AE', /* Decorativo */
+                            rosaClaro: '#FFB3C1',  /* Decorativo */
+                            amarelo: '#FFE48F',    /* Decorativo */
+                            offwhite: '#FFF9F5',   /* Fundo da seção */
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Syne', 'sans-serif'],
+                        ui: ['Outfit', 'sans-serif'],
+                        display: ['Syne', 'sans-serif'],
+                        campanha: ['Sora', 'sans-serif'], /* Fonte Oficial da Campanha */
+                    },
+                    backgroundImage: {
+                        'noise': "url('data:image/svg+xml,%3Csvg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cfilter id=\"noiseFilter\"%3E%3CfeTurbulence type=\"fractalNoise\" baseFrequency=\"0.8\" numOctaves=\"3\" stitchTiles=\"stitch\"/%3E%3C/filter%3E%3Crect width=\"100%25\" height=\"100%25\" filter=\"url(%23noiseFilter)\" opacity=\"0.04\"/%3E%3C/svg%3E')",
+                        'gradient-ha': 'linear-gradient(135deg, #0B64C2 0%, #E31661 100%)',
+                    },
+                    boxShadow: {
+                        'soft': '0 20px 40px -15px rgba(11, 100, 194, 0.1)',
+                        'glow-pink': '0 0 25px rgba(227, 22, 97, 0.25)',
+                        'glow-earth': '0 0 25px rgba(116, 94, 83, 0.15)',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'float-delayed': 'float 6s ease-in-out 3s infinite',
+                        'blob': 'blob 10s infinite',
+                        'fade-up': 'fadeUp 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-15px)' },
+                        },
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        },
+                        fadeUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="font-sans antialiased flex flex-col min-h-screen">
+
+    <div class="ha-brand-bar"></div>
+
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <div class="absolute inset-0 bg-noise opacity-30 mix-blend-multiply"></div>
+        <div
+            class="absolute top-0 right-0 w-[700px] h-[700px] bg-ha-blue/10 rounded-full mix-blend-multiply filter blur-3xl animate-blob">
+        </div>
+        <div
+            class="absolute top-1/2 left-0 w-[600px] h-[600px] bg-ha-pink/5 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000">
+        </div>
+        <div
+            class="absolute -bottom-32 left-20 w-[800px] h-[800px] bg-peocon-earth/20 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000">
+        </div>
+    </div>
+
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300 shadow-sm top-0" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                <div class="flex-shrink-0 flex items-center cursor-pointer group relative z-50 hover:scale-105 transition-transform duration-300"
+                    onclick="navigateTo('home')">
+
+                    <img src="./assets/Peocon_horizontal.png" alt="PEOCON Logo" class="h-12 w-auto object-contain">
+
+                </div>
+
+                <div class="hidden md:flex space-x-2 items-center font-ui">
+                    <button onclick="navigateTo('home')"
+                        class="px-4 py-2 text-xs font-bold tracking-widest text-peocon-muted hover:text-ha-blue transition rounded-full hover:bg-ha-blue/5">INÍCIO</button>
+                    <button onclick="navigateTo('projeto')"
+                        class="px-4 py-2 text-xs font-bold tracking-widest text-peocon-muted hover:text-ha-blue transition rounded-full hover:bg-ha-blue/5">TECNOLOGIA</button>
+                    <button onclick="navigateTo('atuacao')"
+                        class="px-4 py-2 text-xs font-bold tracking-widest text-peocon-muted hover:text-ha-blue transition rounded-full hover:bg-ha-blue/5">ATUAÇÃO</button>
+                    <button onclick="navigateTo('abrace')"
+                        class="px-4 py-2 text-xs font-bold tracking-widest text-abrace-roxo hover:text-abrace-verde transition flex items-center gap-2 group">
+                        <i class="ph-fill ph-heart text-abrace-roxo group-hover:animate-pulse"></i> Abrace a Vida
+                    </button>
+                    <div class="pl-4">
+                        <button onclick="navigateTo('contato')"
+                            class="bg-ha-blue text-white px-6 py-3 rounded-full text-xs font-extrabold tracking-widest hover:bg-ha-dark transition-all transform hover:-translate-y-0.5 shadow-lg shadow-ha-blue/20">
+                            PARTICIPAR
+                        </button>
+                    </div>
+                </div>
+
+                <div class="md:hidden flex items-center z-50">
+                    <button id="mobile-menu-btn" class="text-ha-dark hover:text-ha-pink focus:outline-none p-2">
+                        <i class="ph ph-list text-3xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu"
+            class="fixed inset-0 bg-white/98 backdrop-blur-xl z-40 hidden flex-col justify-center items-center space-y-8 transition-opacity duration-300">
+            <button onclick="navigateTo('home')" class="text-2xl font-heading font-bold text-ha-dark">Início</button>
+            <button onclick="navigateTo('projeto')"
+                class="text-2xl font-heading font-bold text-ha-dark">Tecnologia</button>
+            <button onclick="navigateTo('atuacao')" class="text-2xl font-heading font-bold text-ha-dark">Atuação</button>
+            <button onclick="navigateTo('galeria')" class="text-2xl font-heading font-bold text-ha-dark">Galeria</button>
+            <button onclick="navigateTo('abrace')" class="text-2xl font-heading font-bold text-abrace-roxo">Abrace a
+                Vida</button>
+            <button onclick="navigateTo('contato')"
+                class="text-lg font-ui font-bold bg-ha-blue text-white px-8 py-4 rounded-full shadow-lg">Participar
+                Agora</button>
+        </div>
+    </nav>
+
+    <main class="flex-grow pt-24 relative z-10">
+
+        <section id="home" class="page-section active">
+            <div class="relative min-h-[85vh] flex items-center">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+                    <div class="grid md:grid-cols-2 gap-16 items-center">
+                        <div class="animate-fade-up">
+                            <div
+                                class="inline-flex items-center gap-3 mb-8 pl-1 px-4 py-2 bg-white rounded-full border border-ha-blue/20 shadow-sm w-fit">
+                                <span class="relative flex h-2 w-2">
+                                    <span
+                                        class="animate-ping absolute inline-flex h-full w-full rounded-full bg-ha-blue opacity-75"></span>
+                                    <span class="relative inline-flex rounded-full h-2 w-2 bg-ha-blue"></span>
+                                </span>
+                                <span
+                                    class="text-[10px] font-bold font-ui tracking-[0.2em] text-ha-blue uppercase">Identidade
+                                    & Saúde</span>
+                            </div>
+
+                            <h1
+                                class="text-5xl md:text-6xl lg:text-7xl font-heading font-extrabold text-ha-dark leading-[1.1] mb-8">
+                                Cuidar é um ato de <br>
+                                <span class="text-gradient-ha">Respeito.</span>
+                            </h1>
+
+                            <div class="flex flex-col sm:flex-row gap-5">
+                                <button onclick="scrollToSection('peocon-info')"
+                                    class="group px-8 py-4 bg-ha-pink text-white rounded-full font-bold font-ui tracking-wide shadow-glow-pink hover:bg-ha-dark transition-all duration-300 flex items-center justify-center gap-2 transform hover:-translate-y-1">
+                                    Conhecer o Projeto
+                                    <i
+                                        class="ph-bold ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                                </button>
+                                <button onclick="navigateTo('abrace')"
+                                    class="px-8 py-4 border-2 border-abrace-roxo text-abrace-roxo bg-white/50 backdrop-blur-sm rounded-full font-bold font-ui tracking-wide hover:border-ha-blue hover:text-ha-blue hover:bg-white transition-all duration-300">
+                                    Ação Bebedouro
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="relative h-[500px] flex items-center justify-center">
+                            <div
+                                class="relative glass-card p-8 md:p-10 rounded-[2.5rem] shadow-soft w-full max-w-md transform transition duration-500 animate-float hover:pause cursor-default border border-white">
+                                <div
+                                    class="absolute -top-6 -right-6 w-20 h-20 bg-ha-blue rounded-2xl rotate-12 flex items-center justify-center shadow-lg text-white z-20 border-4 border-white">
+                                    <i class="ph-fill ph-heartbeat text-4xl animate-pulse-slow"></i>
+                                </div>
+
+                                <div class="mb-8 relative z-10">
+                                    <h3 class="text-3xl font-heading font-bold text-ha-dark mb-1">Impacto Real</h3>
+                                    <p class="text-ha-light text-sm font-bold font-ui tracking-widest uppercase">
+                                        Barretos & Bebedouro</p>
+                                </div>
+
+                                <div class="space-y-4">
+                                    <div
+                                        class="flex items-center gap-5 p-5 bg-white/80 rounded-3xl border border-ha-blue/10 hover:scale-[1.02] transition-transform duration-300 cursor-default shadow-sm group">
+                                        <div
+                                            class="w-12 h-12 bg-ha-blue/5 rounded-xl flex items-center justify-center text-ha-blue text-2xl shadow-inner group-hover:bg-ha-blue group-hover:text-white transition-colors">
+                                            <i class="ph-duotone ph-users-three"></i>
+                                        </div>
+                                        <div>
+                                            <p class="text-[10px] text-peocon-muted uppercase font-bold tracking-wider">
+                                                Público Alvo</p>
+                                            <p class="text-xl font-bold text-ha-dark font-heading">Comunidade</p>
+                                        </div>
+                                    </div>
+
+                                    <div
+                                        class="flex items-center gap-5 p-5 bg-white/80 rounded-3xl border border-ha-pink/10 hover:scale-[1.02] transition-transform duration-300 cursor-default shadow-sm group">
+                                        <div
+                                            class="w-12 h-12 bg-ha-pink/5 rounded-xl flex items-center justify-center text-ha-pink text-2xl shadow-inner group-hover:bg-ha-pink group-hover:text-white transition-colors">
+                                            <i class="ph-duotone ph-hospital"></i>
+                                        </div>
+                                        <div>
+                                            <p class="text-[10px] text-peocon-muted uppercase font-bold tracking-wider">
+                                                Base de Apoio</p>
+                                            <p class="text-xl font-bold text-ha-dark font-heading">13 UBSs Ativas</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-y border-peocon-border bg-white/60 backdrop-blur-sm py-12 reveal">
+                <div class="max-w-7xl mx-auto px-4 text-center">
+                    <p class="text-[16px] font-bold font-ui text-peocon-muted/60 uppercase tracking-[0.3em] mb-8">
+                        Realização</p>
+                    <div
+                        class="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-24 opacity-80 transition duration-500">
+
+                        <img src="./assets/logoHA_horizontal.png" alt="Logo Hospital de Amor"
+                            class="h-8 md:h-12 w-auto object-contain hover:scale-105 transition-transform grayscale hover:grayscale-0">
+
+                        <img src="./assets/BMSF_horizontal.png" alt="Logo Bristol Myers Squibb"
+                            class="h-6 md:h-10 w-auto object-contain hover:scale-105 transition-transform grayscale hover:grayscale-0">
+
+                    </div>
+                </div>
+            </div>
+
+            <div id="peocon-info" class="py-24 relative overflow-hidden bg-peocon-warm">
+                <div
+                    class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-peocon-earth/10 via-transparent to-transparent">
+                </div>
+
+                <div class="max-w-7xl mx-auto px-4 text-center relative z-10 mb-20 reveal">
+                    <span
+                        class="text-peocon-clay font-bold font-ui uppercase tracking-widest text-xs mb-4 block">Identidade
+                        & Saúde</span>
+                    <h2 class="text-4xl md:text-6xl font-heading font-bold text-peocon-clay mb-6">O PEOCON</h2>
+                    <p class="text-peocon-muted text-lg max-w-2xl mx-auto leading-relaxed font-light">
+                        Não é apenas sobre saúde. É sobre reconhecer histórias, quebrar barreiras estruturais e garantir
+                        que a tecnologia chegue a quem foi historicamente negligenciado.
+                    </p>
+                </div>
+
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    <div class="grid lg:grid-cols-2 gap-16 mb-24 items-start">
+                        <div class="sticky top-32 reveal">
+                            <h3 class="text-3xl font-heading font-bold text-ha-dark mb-6">Nossa Missão</h3>
+                            <div class="h-1.5 w-20 bg-gradient-to-r from-ha-blue to-peocon-clay mb-8 rounded-full">
+                            </div>
+                            <p class="text-peocon-muted leading-relaxed mb-8 text-lg">
+                                Dados mostram que a população negra enfrenta desafios desproporcionais no acesso a
+                                diagnósticos precoces. O racismo estrutural e a falta de representatividade criam muros
+                                invisíveis nos hospitais.
+                            </p>
+
+                            <div
+                                class="bg-white border-l-4 border-peocon-clay p-8 rounded-r-2xl shadow-soft transform hover:translate-x-2 transition-transform duration-300">
+                                <p class="text-ha-dark font-medium italic font-heading text-lg">
+                                    "O PEOCON derruba esses muros. Atuamos com sensibilidade cultural, usando linguagem
+                                    que nos representa e tecnologia que nos conecta."
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="grid sm:grid-cols-2 gap-6">
+                            <div
+                                class="bg-white p-8 rounded-[2rem] border border-peocon-earth/20 shadow-sm hover:shadow-glow-earth hover:border-peocon-earth/50 hover:-translate-y-2 transition-all duration-300 group reveal delay-100 cursor-default">
+                                <div
+                                    class="w-12 h-12 bg-peocon-sand rounded-xl flex items-center justify-center mb-6 text-peocon-clay shadow-sm group-hover:bg-peocon-clay group-hover:text-white transition-colors duration-300">
+                                    <i class="ph-duotone ph-books text-2xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold font-heading text-peocon-clay mb-2">Educação</h3>
+                                <p class="text-sm text-peocon-muted leading-relaxed">Materiais didáticos com
+                                    representatividade real.</p>
+                            </div>
+
+                            <div
+                                class="bg-white p-8 rounded-[2rem] border border-peocon-earth/20 shadow-sm hover:shadow-glow-blue hover:border-ha-blue/30 hover:-translate-y-2 transition-all duration-300 group sm:mt-12 reveal delay-200 cursor-default">
+                                <div
+                                    class="w-12 h-12 bg-ha-blue/5 rounded-xl flex items-center justify-center mb-6 text-ha-blue shadow-sm group-hover:bg-ha-blue group-hover:text-white transition-colors duration-300">
+                                    <i class="ph-duotone ph-device-mobile text-2xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold font-heading text-ha-dark mb-2">Tecnologia</h3>
+                                <p class="text-sm text-peocon-muted leading-relaxed">Plataforma Mi4U para navegação de
+                                    pacientes.</p>
+                            </div>
+
+                            <div
+                                class="bg-white p-8 rounded-[2rem] border border-peocon-earth/20 shadow-sm hover:shadow-glow-earth hover:border-peocon-clay/50 hover:-translate-y-2 transition-all duration-300 group reveal delay-300 cursor-default">
+                                <div
+                                    class="w-12 h-12 bg-peocon-sand rounded-xl flex items-center justify-center mb-6 text-peocon-clay shadow-sm group-hover:bg-peocon-clay group-hover:text-white transition-colors duration-300">
+                                    <i class="ph-duotone ph-users-four text-2xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold font-heading text-peocon-clay mb-2">Comunidade</h3>
+                                <p class="text-sm text-peocon-muted leading-relaxed">Apoio aos Agentes Comunitários de
+                                    Saúde locais.</p>
+                            </div>
+
+                            <div
+                                class="bg-white p-8 rounded-[2rem] border border-peocon-earth/20 shadow-sm hover:shadow-glow-pink hover:border-ha-pink/30 hover:-translate-y-2 transition-all duration-300 group sm:mt-12 reveal delay-400 cursor-default">
+                                <div
+                                    class="w-12 h-12 bg-ha-pink/5 rounded-xl flex items-center justify-center mb-6 text-ha-pink shadow-sm group-hover:bg-ha-pink group-hover:text-white transition-colors duration-300">
+                                    <i class="ph-duotone ph-heartbeat text-2xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold font-heading text-ha-dark mb-2">Cuidado</h3>
+                                <p class="text-sm text-peocon-muted leading-relaxed">Foco total na prevenção e
+                                    diagnóstico precoce.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white py-20 border-t border-peocon-border">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-12 reveal">
+                        <h2 class="text-3xl font-heading font-bold text-ha-dark mb-4">Transformando Vidas</h2>
+                        <p class="text-peocon-muted text-lg max-w-2xl mx-auto">
+                            Registros de nossas ações de tecnologia, humanização e cuidado nas comunidades.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 reveal delay-100 min-h-[500px]">
+
+                        <div
+                            class="lg:col-span-2 relative group rounded-[2rem] overflow-hidden shadow-lg h-[400px] lg:h-full cursor-pointer">
+                            <img src="./galeria/Abraco.png"
+                                class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                alt="Ação Comunitária">
+
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                                <span
+                                    class="text-ha-blue text-xs font-bold uppercase tracking-widest mb-1 bg-white/10 backdrop-blur-sm w-fit px-2 py-1 rounded">Ação
+                                    Local</span>
+                                <h3 class="text-white font-heading font-bold text-2xl lg:text-3xl">Presença na
+                                    Comunidade</h3>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col gap-6 lg:col-span-1 h-full">
+
+                            <div
+                                class="relative group rounded-[2rem] overflow-hidden shadow-lg h-[250px] lg:h-1/2 cursor-pointer flex-1">
+                                <img src="./galeria/EquipeUBS.jpg"
+                                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                    alt="Tecnologia">
+
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-6">
+                                    <h3 class="text-white font-heading font-bold text-lg">Tecnologia de Ponta</h3>
+                                </div>
+                            </div>
+
+                            <div
+                                class="relative group rounded-[2rem] overflow-hidden shadow-lg h-[250px] lg:h-1/2 cursor-pointer flex-1">
+                                <img src="./galeria/Injecao.jpg"
+                                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                    alt="Cuidado Humano">
+
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-6">
+                                    <h3 class="text-white font-heading font-bold text-lg">Cuidado Humano</h3>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    </div>
+            </div>
+
+        </section>
+
+        <section id="projeto" class="page-section">
+            <div class="max-w-7xl mx-auto px-4 py-20 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 reveal">
+                    <span
+                        class="text-ha-blue font-bold font-ui tracking-widest text-xs uppercase mb-3 inline-block bg-ha-blue/5 px-3 py-1 rounded-lg border border-ha-blue/10">Inovação
+                        Social</span>
+                    <h2 class="text-4xl md:text-5xl font-heading font-bold text-ha-dark mb-6">Tecnologia Acessível</h2>
+                    <p class="text-peocon-muted text-lg max-w-2xl mx-auto leading-relaxed">
+                        A tecnologia como aliada invisível, mas presente, na jornada do paciente. Simples, direta e sem
+                        barreiras.
+                    </p>
+                </div>
+
+                <div
+                    class="glass-card rounded-[3rem] p-8 md:p-16 flex flex-col md:flex-row items-start gap-16 shadow-xl relative overflow-hidden reveal bg-white/80">
+                    <div class="md:w-1/2 relative z-10 w-full">
+                        <h2 class="text-3xl font-heading font-bold text-ha-dark mb-6">Navegação Humanizada</h2>
+                        <p class="text-peocon-muted mb-8 leading-relaxed text-lg">
+                            Utilizamos inteligência de dados para "navegar" o paciente. Isso significa que, após o
+                            diagnóstico, ninguém solta a mão de ninguém.
+                        </p>
+
+                        <div class="space-y-4 w-full">
+                            <div
+                                class="bg-white/60 rounded-2xl border border-white hover:bg-white transition-all duration-300 shadow-sm hover:border-ha-blue/20 overflow-hidden group">
+                                <button onclick="toggleTechDetail(this)"
+                                    class="w-full flex items-center gap-4 p-4 text-left focus:outline-none">
+                                    <div
+                                        class="w-8 h-8 rounded-full bg-ha-blue/10 flex items-center justify-center text-ha-blue flex-shrink-0 group-hover:scale-110 transition-transform">
+                                        <i class="ph-bold ph-whatsapp-logo"></i>
+                                    </div>
+                                    <div class="flex-grow">
+                                        <span class="font-bold text-ha-dark block">Acompanhamento contínuo</span>
+                                        <span
+                                            class="text-xs text-peocon-muted hidden group-hover:block transition-all">Clique
+                                            para saber mais</span>
+                                    </div>
+                                    <i
+                                        class="ph-bold ph-caret-down text-peocon-muted transform transition-transform duration-300"></i>
+                                </button>
+                                <div
+                                    class="hidden px-4 pb-6 pt-0 text-sm text-peocon-muted border-t border-peocon-border/50 mt-2">
+                                    <div class="pt-4 space-y-3">
+                                        <p class="leading-relaxed">
+                                            <strong class="text-ha-blue">Tudo pelo WhatsApp.</strong> O paciente recebe
+                                            agendamentos, confirmações de exames, lembretes de consultas e orientações
+                                            diretamente no aplicativo que já usa todos os dias.
+                                        </p>
+                                        <ul class="list-disc pl-4 space-y-1 opacity-90">
+                                            <li>Sem instalar novos aplicativos.</li>
+                                            <li>Respostas inteligentes via IA.</li>
+                                            <li>Histórico de conversa centralizado.</li>
+                                        </ul>
+                                        <p class="text-xs italic mt-2 opacity-70">Powered by Mi4U</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="flex items-center gap-4 p-4 bg-white/60 rounded-2xl border border-white hover:bg-white transition-colors cursor-default shadow-sm hover:border-ha-blue/20">
+                                <div
+                                    class="w-8 h-8 rounded-full bg-ha-blue/10 flex items-center justify-center text-ha-blue">
+                                    <i class="ph-bold ph-bell-ringing"></i>
+                                </div>
+                                <span class="font-bold text-ha-dark">Lembretes automáticos</span>
+                            </div>
+                            <div
+                                class="flex items-center gap-4 p-4 bg-white/60 rounded-2xl border border-white hover:bg-white transition-colors cursor-default shadow-sm hover:border-ha-blue/20">
+                                <div
+                                    class="w-8 h-8 rounded-full bg-ha-blue/10 flex items-center justify-center text-ha-blue">
+                                    <i class="ph-bold ph-robot"></i>
+                                </div>
+                                <span class="font-bold text-ha-dark">Inteligência Artificial Generativa</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="md:w-1/2 flex justify-center relative z-10 w-full mt-8 md:mt-0">
+                        <div
+                            class="w-80 h-[500px] bg-ha-dark rounded-[3rem] p-3 shadow-2xl relative border border-white/20 transform rotate-2 animate-float-delayed hover:rotate-0 transition duration-500">
+                            <div
+                                class="bg-peocon-sand w-full h-full rounded-[2.5rem] overflow-hidden flex flex-col relative">
+                                <div class="h-10 w-full bg-ha-dark/10 mb-4 rounded-b-2xl"></div>
+                                <div class="px-6">
+                                    <h3 class="text-xl font-heading font-bold text-ha-dark">Olá, <br>Maria Silva</h3>
+                                </div>
+                                <div
+                                    class="m-6 p-6 bg-gradient-ha text-white rounded-3xl shadow-lg transform hover:scale-105 transition-transform duration-500 cursor-pointer">
+                                    <span class="text-[10px] font-bold uppercase opacity-80 mb-2 block">WhatsApp
+                                        PEOCON</span>
+                                    <p class="text-lg font-bold leading-tight mb-2">Confirmação de Agendamento</p>
+                                    <p class="text-xs opacity-90 leading-relaxed">
+                                        Olá Maria! Sua mamografia está agendada para <strong>15/Out às 09:00</strong> na
+                                        UBS Derby.
+                                    </p>
+                                    <div
+                                        class="mt-4 bg-white/20 py-2 px-4 rounded-lg text-center text-xs font-bold cursor-pointer hover:bg-white/30 transition">
+                                        Confirmar Presença</div>
+                                </div>
+                                <div class="flex-1 px-6 space-y-2">
+                                    <div class="h-10 bg-white rounded-xl w-3/4 shadow-sm opacity-50"></div>
+                                    <div class="h-10 bg-white rounded-xl w-full shadow-sm opacity-30"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="atuacao" class="page-section">
+            <div class="py-20 text-center reveal bg-peocon-sand/50">
+                <h1 class="text-4xl md:text-6xl font-heading font-bold text-peocon-clay mb-4">No Território</h1>
+                <p class="text-peocon-muted text-lg max-w-2xl mx-auto font-light">
+                    Atuação direta em <strong class="text-peocon-clay font-bold">Barretos</strong>, conectando as UBSs
+                    ao Hospital de Amor.
+                </p>
+            </div>
+
+            <div class="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-2 gap-16">
+                    <div class="reveal delay-100 flex flex-col h-full">
+                        <div class="flex items-center gap-3 mb-8">
+                            <span class="h-px w-8 bg-peocon-clay"></span>
+                            <h2 class="text-xl font-bold font-heading text-peocon-clay uppercase tracking-wide">Unidades
+                                Parceiras</h2>
+                        </div>
+
+                        <div class="space-y-4 flex-grow">
+                            <a href="https://www.google.com/maps/search/?api=1&query=UBS+Derby+Club+Barretos"
+                                target="_blank"
+                                class="group bg-white/40 p-6 rounded-2xl border border-peocon-earth/30 hover:bg-white hover:shadow-lg hover:-translate-x-[-5px] transition-all cursor-pointer flex items-center justify-between block w-full text-left">
+                                <div>
+                                    <h3
+                                        class="font-bold text-ha-dark text-lg group-hover:text-ha-blue transition-colors">
+                                        UBS Derby Club</h3>
+                                    <p class="text-sm text-peocon-muted mt-1">Exames disponíveis: <strong
+                                            class="text-ha-dark">Mamografia, Papanicolaou e FIT (Colorretal)</strong>.
+                                    </p>
+                                </div>
+                                <div
+                                    class="w-12 h-12 rounded-full bg-peocon-sand flex items-center justify-center text-peocon-clay group-hover:bg-ha-blue group-hover:text-white transition-all transform group-hover:scale-110 shadow-sm flex-shrink-0 ml-4">
+                                    <i class="ph-bold ph-map-pin text-xl"></i>
+                                </div>
+                            </a>
+
+                            <a href="https://www.google.com/maps/search/?api=1&query=UBS+Nova+Barretos" target="_blank"
+                                class="group bg-white/40 p-6 rounded-2xl border border-peocon-earth/30 hover:bg-white hover:shadow-lg hover:-translate-x-[-5px] transition-all cursor-pointer flex items-center justify-between block w-full text-left">
+                                <div>
+                                    <h3
+                                        class="font-bold text-ha-dark text-lg group-hover:text-ha-blue transition-colors">
+                                        UBS Nova Barretos</h3>
+                                    <p class="text-sm text-peocon-muted mt-1">Exames disponíveis: <strong
+                                            class="text-ha-dark">Mamografia, Papanicolaou e FIT (Colorretal)</strong>.
+                                    </p>
+                                </div>
+                                <div
+                                    class="w-12 h-12 rounded-full bg-peocon-sand flex items-center justify-center text-peocon-clay group-hover:bg-ha-blue group-hover:text-white transition-all transform group-hover:scale-110 shadow-sm flex-shrink-0 ml-4">
+                                    <i class="ph-bold ph-map-pin text-xl"></i>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="mt-8 grid sm:grid-cols-2 gap-4">
+                            <button onclick="navigateTo('contato')"
+                                class="w-full bg-ha-blue text-white px-6 py-4 rounded-xl font-bold font-ui uppercase tracking-wide hover:bg-ha-dark transition shadow-lg flex items-center justify-center gap-2 group">
+                                <i class="ph-bold ph-calendar-check text-xl"></i>
+                                Agendar Exames
+                            </button>
+                            <button onclick="navigateTo('abrace')"
+                                class="w-full bg-transparent border-2 border-abrace-roxo text-abrace-roxo px-6 py-4 rounded-xl font-bold font-ui uppercase tracking-wide hover:bg-abrace-roxo hover:text-white transition flex items-center justify-center gap-2 group">
+                                <i class="ph-bold ph-heart text-xl group-hover:animate-pulse"></i>
+                                Ação Bebedouro
+                            </button>
+                        </div>
+                    </div>
+
+                    <div
+                        class="bg-ha-dark text-white p-10 rounded-[2.5rem] shadow-soft relative overflow-hidden flex flex-col justify-between reveal delay-200 hover:scale-[1.01] transition-transform duration-500 border border-white/10">
+                        <div
+                            class="absolute top-0 right-0 w-64 h-64 bg-ha-blue rounded-full blur-3xl -mr-20 -mt-20 opacity-30">
+                        </div>
+                        <div
+                            class="absolute bottom-0 left-0 w-40 h-40 bg-ha-pink rounded-full blur-3xl -ml-10 -mb-10 opacity-20">
+                        </div>
+
+                        <div class="relative z-10">
+                            <h3 class="text-2xl font-bold font-heading mb-8 text-white">O Desafio em Números</h3>
+
+                            <div class="space-y-6">
+                                <div>
+                                    <div class="flex justify-between mb-2">
+                                        <span
+                                            class="text-xs font-bold text-white/80 uppercase tracking-wider">Absenteísmo
+                                            Geral</span>
+                                        <span class="text-xs font-bold text-white">49%</span>
+                                    </div>
+                                    <div class="w-full bg-white/10 h-3 rounded-full overflow-hidden relative">
+                                        <div
+                                            class="absolute top-0 left-0 h-full bg-ha-pink w-[49%] rounded-full animate-pulse">
+                                        </div>
+                                    </div>
+                                    <p class="text-[10px] text-white/60 mt-2 leading-relaxed">
+                                        Em mamografias, quase metade das pacientes agendadas não comparecem aos exames.
+                                        Nosso foco é reduzir essa taxa e garantir o cuidado.
+                                    </p>
+                                </div>
+
+                                <div class="grid grid-cols-2 gap-4 border-t border-white/10 pt-6">
+                                    <div>
+                                        <span class="block text-4xl font-heading font-bold text-white mb-1">400+</span>
+                                        <span
+                                            class="text-[10px] text-white/70 font-bold uppercase tracking-widest">Exames
+                                            Agendados</span>
+                                    </div>
+                                    <div>
+                                        <span
+                                            class="block text-4xl font-heading font-bold text-white mb-1 flex items-center gap-2">
+                                            <i class="ph-fill ph-check-circle text-2xl text-green-400 opacity-90"></i>
+                                        </span>
+                                        <span
+                                            class="text-[10px] text-white/70 font-bold uppercase tracking-widest">Suporte
+                                            Integral</span>
+                                    </div>
+                                </div>
+                                <p class="text-[9px] text-white/40 mt-0">*Acompanhamento em todas as etapas do
+                                    diagnóstico.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="galeria" class="page-section">
+            <div class="py-24 md:py-32 bg-peocon-bg">
+                <div class="max-w-7xl mx-auto px-4 text-center reveal">
+                    <h1 class="text-4xl md:text-5xl font-heading font-bold text-ha-dark mb-6">Galeria de Impacto</h1>
+                    <p class="text-peocon-muted text-lg max-w-3xl mx-auto font-light">
+                        Registros de nossas ações nas comunidades, mutirões de saúde e treinamentos.
+                    </p>
+                </div>
+
+                <div class="max-w-7xl mx-auto px-4 py-16">
+                    <div class="reveal delay-100">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 auto-rows-[350px]">
+
+                            <div
+                                class="md:row-span-2 rounded-[2rem] overflow-hidden relative group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-500">
+                                <img src="https://images.unsplash.com/photo-1576091160550-217358c7db81?auto=format&fit=crop&q=80&w=800"
+                                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    alt="Ação Comunitária">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
+                                    <span
+                                        class="text-ha-pink text-xs font-bold uppercase tracking-widest mb-2">Comunidade</span>
+                                    <h3 class="text-white font-heading font-bold text-xl">Ação nos Bairros</h3>
+                                </div>
+                            </div>
+
+                            <div
+                                class="rounded-[2rem] overflow-hidden relative group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-500">
+                                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=800"
+                                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    alt="Tecnologia">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
+                                    <span
+                                        class="text-ha-blue text-xs font-bold uppercase tracking-widest mb-2">Tecnologia</span>
+                                    <h3 class="text-white font-heading font-bold text-xl">Inovação em Saúde</h3>
+                                </div>
+                            </div>
+
+                            <div
+                                class="rounded-[2rem] overflow-hidden relative group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-500">
+                                <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=800"
+                                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    alt="Equipe">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
+                                    <span
+                                        class="text-peocon-clay text-xs font-bold uppercase tracking-widest mb-2">Equipe</span>
+                                    <h3 class="text-white font-heading font-bold text-xl">Nossos Profissionais</h3>
+                                </div>
+                            </div>
+
+                            <div
+                                class="md:col-span-2 rounded-[2rem] overflow-hidden relative group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-500">
+                                <img src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?auto=format&fit=crop&q=80&w=1200"
+                                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    alt="Humanização">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
+                                    <span
+                                        class="text-white text-xs font-bold uppercase tracking-widest mb-2">Humanização</span>
+                                    <h3 class="text-white font-heading font-bold text-xl">Atendimento Acolhedor</h3>
+                                </div>
+                            </div>
+
+                            <div
+                                class="rounded-[2rem] overflow-hidden relative group cursor-pointer shadow-lg hover:shadow-2xl transition-all duration-500">
+                                <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&q=80&w=800"
+                                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    alt="Prevenção">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
+                                    <span
+                                        class="text-ha-pink text-xs font-bold uppercase tracking-widest mb-2">Prevenção</span>
+                                    <h3 class="text-white font-heading font-bold text-xl">Cuidado Preventivo</h3>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="abrace" class="page-section">
+            <div class="relative py-20 reveal overflow-hidden">
+
+                <div class="absolute inset-0 bg-abrace-roxoSuave"></div>
+
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-white/40 via-transparent to-transparent">
+                </div>
+               
+                <div
+                    class="absolute top-0 right-0 w-64 h-64 bg-abrace-verdeClaro rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob">
+                </div>
+                <div
+                    class="absolute bottom-0 left-0 w-64 h-64 bg-abrace-laranja rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000">
+                </div>
+
+                <div class="max-w-7xl mx-auto px-4 text-center relative z-10 flex flex-col items-center">
+                    <span
+                        class="border border-abrace-verde/20 bg-white/40 backdrop-blur-md px-4 py-1 rounded-full text-[10px] font-campanha font-bold uppercase tracking-widest mb-8 inline-block text-abrace-verde shadow-sm">Bebedouro
+                        - SP</span>
+
+                    <div class="mb-6 animate-fade-up">
+                        <img src="./assets/AbraceV_horizontal.png"
+                            alt="Logo Abrace a Vida"
+                            class="h-32 md:h-48 object-contain drop-shadow-xl hover:scale-105 transition-transform duration-500">
+                    </div>
+
+                    <p
+                        class="max-w-xl mx-auto text-lg text-abrace-verde/80 font-campanha font-medium delay-100 reveal drop-shadow-sm">
+                        Cuidar hoje é viver melhor amanhã. Uma mobilização por você.
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-abrace-offwhite">
+                <div class="max-w-7xl mx-auto px-4 py-12 relative z-10 -mt-10">
+                    <div
+                        class="bg-white border border-abrace-bege shadow-xl rounded-[2.5rem] overflow-hidden reveal delay-200">
+                        <div class="flex flex-col lg:flex-row">
+                            <div
+                                class="p-8 md:p-12 lg:w-1/3 flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-abrace-bege bg-white relative z-10">
+                                <h2 class="text-3xl font-bold text-abrace-verde mb-6 font-campanha">Ação Direta</h2>
+                                <p class="text-peocon-muted mb-8 leading-relaxed text-sm lg:text-base font-campanha">
+                                    Estamos unidos para transformar Bebedouro em um modelo de prevenção. Sua saúde é
+                                    nossa prioridade.
+                                </p>
+
+                                <div class="space-y-4 mb-8">
+                                    <div
+                                        class="flex gap-4 p-4 bg-abrace-offwhite rounded-2xl border border-transparent hover:border-abrace-roxo/20 transition group">
+                                        <div
+                                            class="w-10 h-10 rounded-full bg-abrace-roxo/10 flex items-center justify-center text-abrace-roxo group-hover:bg-abrace-roxo group-hover:text-white transition-colors">
+                                            <i class="ph-fill ph-megaphone text-xl"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold text-abrace-verde text-base font-campanha">
+                                                Conscientização</h4>
+                                            <p class="text-xs text-peocon-muted">Informação que salva vidas.</p>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="flex gap-4 p-4 bg-abrace-offwhite rounded-2xl border border-transparent hover:border-abrace-laranja/20 transition group">
+                                        <div
+                                            class="w-10 h-10 rounded-full bg-abrace-laranja/10 flex items-center justify-center text-abrace-laranja group-hover:bg-abrace-laranja group-hover:text-white transition-colors">
+                                            <i class="ph-fill ph-calendar-check text-xl"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold text-abrace-verde text-base font-campanha">Mutirão de
+                                                Exames</h4>
+                                            <p class="text-xs text-peocon-muted">Acesso facilitado para todos.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <button onclick="navigateTo('contato')"
+                                        class="w-full bg-abrace-verde text-white px-6 py-4 rounded-xl text-sm font-bold font-campanha uppercase tracking-wide hover:bg-abrace-laranja transition-colors duration-300 shadow-lg flex items-center justify-center gap-2 group transform hover:-translate-y-1">
+                                        Participe e Previna-se <i
+                                            class="ph-bold ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="p-8 md:p-12 lg:w-2/3 bg-abrace-offwhite/50">
+                                <div class="flex flex-col md:flex-row justify-between items-end mb-8 gap-4">
+                                    <div>
+                                        <h3 class="text-xl font-bold text-abrace-verde font-campanha">Unidades Parceiras
+                                        </h3>
+                                        <p
+                                            class="text-abrace-laranja font-bold uppercase text-[10px] tracking-widest mt-1 font-campanha">
+                                            Região Leste • Bebedouro-SP</p>
+                                    </div>
+                                    <button onclick="openMapModal()"
+                                        class="text-xs font-bold text-peocon-muted hover:text-abrace-roxo transition flex items-center gap-1 group font-campanha uppercase tracking-wider">
+                                        VER MAPA GERAL <i
+                                            class="ph-bold ph-map-trifold text-lg group-hover:text-abrace-roxo transition"></i>
+                                    </button>
+                                </div>
+
+                                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+
+                                    <a href="https://www.google.com/maps/search/ESF+Dr+Salim+Bonemer+Filho+Bebedouro"
+                                        target="_blank"
+                                        class="group relative h-36 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-white bg-white">
+                                        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110 opacity-90"
+                                            style="background-image: url('./UBSs/Salim.jpeg');">
+                                        </div>
+                                        <div
+                                            class="absolute inset-0 bg-gradient-to-t from-abrace-verde/90 via-abrace-verde/40 to-transparent opacity-80 group-hover:opacity-60 transition-opacity">
+                                        </div>
+                                        <div class="absolute inset-0 p-4 flex flex-col justify-between z-10">
+                                            <div class="flex justify-end">
+                                                <div
+                                                    class="w-7 h-7 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-abrace-verde shadow-sm">
+                                                    <i class="ph-bold ph-map-pin text-xs"></i>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <span
+                                                    class="text-[9px] font-bold text-abrace-verdeClaro uppercase tracking-widest block mb-0.5 font-campanha">ESF</span>
+                                                <span
+                                                    class="text-xs md:text-sm font-bold text-white uppercase leading-tight block text-shadow font-campanha">Salim</span>
+                                            </div>
+                                        </div>
+                                    </a>
+
+                                    <a href="https://www.google.com/maps/search/ESF+Dr+Gerolino+Jose+de+Souza+Bebedouro"
+                                        target="_blank"
+                                        class="group relative h-36 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-white bg-white">
+                                        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110 opacity-90"
+                                            style="background-image: url('./UBSs/Dr\ Gerolino.jpg');">
+                                        </div>
+                                        <div
+                                            class="absolute inset-0 bg-gradient-to-t from-abrace-verde/90 via-abrace-verde/40 to-transparent opacity-80 group-hover:opacity-60 transition-opacity">
+                                        </div>
+                                        <div class="absolute inset-0 p-4 flex flex-col justify-between z-10">
+                                            <div class="flex justify-end">
+                                                <div
+                                                    class="w-7 h-7 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-abrace-verde shadow-sm">
+                                                    <i class="ph-bold ph-map-pin text-xs"></i>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <span
+                                                    class="text-[9px] font-bold text-abrace-verdeClaro uppercase tracking-widest block mb-0.5 font-campanha">ESF</span>
+                                                <span
+                                                    class="text-xs md:text-sm font-bold text-white uppercase leading-tight block text-shadow font-campanha">Gerolino</span>
+                                            </div>
+                                        </div>
+                                    </a>
+
+                                    <a href="https://www.google.com/maps/search/UBS+Dr+Tasso+de+Oliveira+Bebedouro"
+                                        target="_blank"
+                                        class="group relative h-36 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-white bg-white">
+                                        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110 opacity-90"
+                                            style="background-image: url('./UBSs/Tasso.jpeg');">
+                                        </div>
+                                        <div
+                                            class="absolute inset-0 bg-gradient-to-t from-abrace-verde/90 via-abrace-verde/40 to-transparent opacity-80 group-hover:opacity-60 transition-opacity">
+                                        </div>
+                                        <div class="absolute inset-0 p-4 flex flex-col justify-between z-10">
+                                            <div class="flex justify-end">
+                                                <div
+                                                    class="w-7 h-7 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-abrace-verde shadow-sm">
+                                                    <i class="ph-bold ph-map-pin text-xs"></i>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <span
+                                                    class="text-[9px] font-bold text-abrace-verdeClaro uppercase tracking-widest block mb-0.5 font-campanha">UBS</span>
+                                                <span
+                                                    class="text-xs md:text-sm font-bold text-white uppercase leading-tight block text-shadow font-campanha">Tasso</span>
+                                            </div>
+                                        </div>
+                                    </a>
+
+                                    <a href="https://www.google.com/maps/search/ESF+Dr+Pedro+Marinho+de+Monte+Bebedouro"
+                                        target="_blank"
+                                        class="group relative h-36 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-white bg-white">
+                                        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110 opacity-90"
+                                            style="background-image: url('./UBSs/Pedro\ Marinho.jpeg');">
+                                        </div>
+                                        <div
+                                            class="absolute inset-0 bg-gradient-to-t from-abrace-verde/90 via-abrace-verde/40 to-transparent opacity-80 group-hover:opacity-60 transition-opacity">
+                                        </div>
+                                        <div class="absolute inset-0 p-4 flex flex-col justify-between z-10">
+                                            <div class="flex justify-end">
+                                                <div
+                                                    class="w-7 h-7 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-abrace-verde shadow-sm">
+                                                    <i class="ph-bold ph-map-pin text-xs"></i>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <span
+                                                    class="text-[9px] font-bold text-abrace-verdeClaro uppercase tracking-widest block mb-0.5 font-campanha">ESF</span>
+                                                <span
+                                                    class="text-xs md:text-sm font-bold text-white uppercase leading-tight block text-shadow font-campanha">Pedro
+                                                    Marinho</span>
+                                            </div>
+                                        </div>
+                                    </a>
+
+                                    <a href="https://www.google.com/maps?cid=6006024851261743976" target="_blank"
+                                        class="group relative h-36 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-white bg-white">
+                                        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110 opacity-90"
+                                            style="background-image: url('./UBSs/Dr\ José\ Mauro\ Neto.jpeg');">
+                                        </div>
+                                        <div
+                                            class="absolute inset-0 bg-gradient-to-t from-abrace-verde/90 via-abrace-verde/40 to-transparent opacity-80 group-hover:opacity-60 transition-opacity">
+                                        </div>
+                                        <div class="absolute inset-0 p-4 flex flex-col justify-between z-10">
+                                            <div class="flex justify-end">
+                                                <div
+                                                    class="w-7 h-7 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-abrace-verde shadow-sm">
+                                                    <i class="ph-bold ph-map-pin text-xs"></i>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <span
+                                                    class="text-[9px] font-bold text-abrace-verdeClaro uppercase tracking-widest block mb-0.5 font-campanha">ESF</span>
+                                                <span
+                                                    class="text-xs md:text-sm font-bold text-white uppercase leading-tight block text-shadow font-campanha">Mauro
+                                                    Neto</span>
+                                            </div>
+                                        </div>
+                                    </a>
+
+                                    <a href="https://www.google.com/maps/search/ESF+Dr+Mauro+Burjaili+Bebedouro"
+                                        target="_blank"
+                                        class="group relative h-36 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-white bg-white">
+                                        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110 opacity-90"
+                                            style="background-image: url('./UBSs/UBS\ Botafogo\ Dr.\ Mauro\ Burjaili.jpg');">
+                                        </div>
+                                        <div
+                                            class="absolute inset-0 bg-gradient-to-t from-abrace-verde/90 via-abrace-verde/40 to-transparent opacity-80 group-hover:opacity-60 transition-opacity">
+                                        </div>
+                                        <div class="absolute inset-0 p-4 flex flex-col justify-between z-10">
+                                            <div class="flex justify-end">
+                                                <div
+                                                    class="w-7 h-7 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-abrace-verde shadow-sm">
+                                                    <i class="ph-bold ph-map-pin text-xs"></i>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <span
+                                                    class="text-[9px] font-bold text-abrace-verdeClaro uppercase tracking-widest block mb-0.5 font-campanha">ESF</span>
+                                                <span
+                                                    class="text-xs md:text-sm font-bold text-white uppercase leading-tight block text-shadow font-campanha">Mauro
+                                                    Burjaili</span>
+                                                <span
+                                                    class="text-[9px] font-medium text-white/80 block mt-1 font-campanha">Distrito
+                                                    de Botafogo</span>
+                                            </div>
+                                        </div>
+                                    </a>
+
+                                    <a href="https://www.google.com/maps/place/Turv%C3%ADnia,+Bebedouro+-+SP,+14716-015/@-21.0158632,-48.6464549,18.75z/data=!4m6!3m5!1s0x94bbfebbb327e3e1:0xb1760b0c53a37967!8m2!3d-21.0155075!4d-48.6463475!16s%2Fg%2F12360f87?entry=ttu&g_ep=EgoyMDI2MDEwNC4wIKXMDSoASAFQAw%3D%3D"
+                                        target="_blank"
+                                        class="group relative h-36 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-white bg-white">
+                                        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110 opacity-90"
+                                            style="background-image: url('./UBSs/ESF Dr. Reinaldo Jacobs - Turvinia .jpeg');">
+                                        </div>
+                                        <div
+                                            class="absolute inset-0 bg-gradient-to-t from-abrace-verde/90 via-abrace-verde/40 to-transparent opacity-80 group-hover:opacity-60 transition-opacity">
+                                        </div>
+                                        <div class="absolute inset-0 p-4 flex flex-col justify-between z-10">
+                                            <div class="flex justify-end">
+                                                <div
+                                                    class="w-7 h-7 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-abrace-verde shadow-sm">
+                                                    <i class="ph-bold ph-map-pin text-xs"></i>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <span
+                                                    class="text-[9px] font-bold text-abrace-verdeClaro uppercase tracking-widest block mb-0.5 font-campanha">ESF</span>
+                                                <span
+                                                    class="text-xs md:text-sm font-bold text-white uppercase leading-tight block text-shadow font-campanha">Reinaldo
+                                                    Jacobs</span>
+                                                <span
+                                                    class="text-[9px] font-medium text-white/80 block mt-1 font-campanha">Distrito
+                                                    de Turvínia</span>
+                                            </div>
+                                        </div>
+                                    </a>
+
+                                    <a href=https://www.google.com/maps/place/Hospital+Municipal+de+Bebedouro+%22Julia+Pinto+Caldeira%22/@-20.9346498,-48.4981992,18.25z/data=!4m6!3m5!1s0x94bbe3d6d723ecd9:0xc55569b3219a5238!8m2!3d-20.9346575!4d-48.4965572!16s%2Fg%2F11b6ssk_zg?entry=ttu&g_ep=EgoyMDI2MDEwNC4wIKXMDSoASAFQAw%3D%3D"
+                                        target="_blank"
+                                        class="group relative h-36 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-white bg-white">
+                                        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110 opacity-90"
+                                            style="background-image: url('./UBSs/Fundacao\ AAM.jpg');">
+                                        </div>
+                                        <div
+                                            class="absolute inset-0 bg-gradient-to-t from-abrace-verde/90 via-abrace-verde/40 to-transparent opacity-80 group-hover:opacity-60 transition-opacity">
+                                        </div>
+                                        <div class="absolute inset-0 p-4 flex flex-col justify-between z-10">
+                                            <div class="flex justify-end">
+                                                <div
+                                                    class="w-7 h-7 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-abrace-verde shadow-sm">
+                                                    <i class="ph-bold ph-map-pin text-xs"></i>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <span
+                                                    class="text-[9px] font-bold text-abrace-verdeClaro uppercase tracking-widest block mb-0.5 font-campanha">Fundação</span>
+                                                <span
+                                                    class="text-xs md:text-sm font-bold text-white uppercase leading-tight block text-shadow font-campanha">Abílio
+                                                    Alvez M.</span>
+                                            </div>
+                                        </div>
+                                    </a>
+
+                                    <a href="https://www.google.com/maps/search/ESF+Dr+Ricardo+Dias+de+Toledo+Bebedouro"
+                                        target="_blank"
+                                        class="group relative h-36 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-white bg-white">
+                                        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110 opacity-90"
+                                            style="background-image: url('./UBSs/Ricardo\ dias.jpg');">
+                                        </div>
+                                        <div
+                                            class="absolute inset-0 bg-gradient-to-t from-abrace-verde/90 via-abrace-verde/40 to-transparent opacity-80 group-hover:opacity-60 transition-opacity">
+                                        </div>
+                                        <div class="absolute inset-0 p-4 flex flex-col justify-between z-10">
+                                            <div class="flex justify-end">
+                                                <div
+                                                    class="w-7 h-7 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-abrace-verde shadow-sm">
+                                                    <i class="ph-bold ph-map-pin text-xs"></i>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <span
+                                                    class="text-[9px] font-bold text-abrace-verdeClaro uppercase tracking-widest block mb-0.5 font-campanha">ESF</span>
+                                                <span
+                                                    class="text-xs md:text-sm font-bold text-white uppercase leading-tight block text-shadow font-campanha">Ricardo
+                                                    Dias</span>
+                                            </div>
+                                        </div>
+                                    </a>
+
+                                    <a href="https://www.google.com/maps/search/UBS+Moacyr+Caldeira+Bebedouro"
+                                        target="_blank"
+                                        class="group relative h-36 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-white bg-white">
+                                        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110 opacity-90"
+                                            style="background-image: url('./UBSs/Dr.\ Moacyr.jpg');">
+                                        </div>
+                                        <div
+                                            class="absolute inset-0 bg-gradient-to-t from-abrace-verde/90 via-abrace-verde/40 to-transparent opacity-80 group-hover:opacity-60 transition-opacity">
+                                        </div>
+                                        <div class="absolute inset-0 p-4 flex flex-col justify-between z-10">
+                                            <div class="flex justify-end">
+                                                <div
+                                                    class="w-7 h-7 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-abrace-verde shadow-sm">
+                                                    <i class="ph-bold ph-map-pin text-xs"></i>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <span
+                                                    class="text-[9px] font-bold text-abrace-verdeClaro uppercase tracking-widest block mb-0.5 font-campanha">UBS</span>
+                                                <span
+                                                    class="text-xs md:text-sm font-bold text-white uppercase leading-tight block text-shadow font-campanha">Moacyr</span>
+                                            </div>
+                                        </div>
+                                    </a>
+
+                                    <a href="https://www.google.com/maps/search/ESF+Ulisses+de+Carvalho+Bebedouro"
+                                        target="_blank"
+                                        class="group relative h-36 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-white bg-white">
+                                        <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110 opacity-90"
+                                            style="background-image: url('./UBSs/Ulisses\ de\ Carvalho.jpeg');">
+                                        </div>
+                                        <div
+                                            class="absolute inset-0 bg-gradient-to-t from-abrace-verde/90 via-abrace-verde/40 to-transparent opacity-80 group-hover:opacity-60 transition-opacity">
+                                        </div>
+                                        <div class="absolute inset-0 p-4 flex flex-col justify-between z-10">
+                                            <div class="flex justify-end">
+                                                <div
+                                                    class="w-7 h-7 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-abrace-verde shadow-sm">
+                                                    <i class="ph-bold ph-map-pin text-xs"></i>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <span
+                                                    class="text-[9px] font-bold text-abrace-verdeClaro uppercase tracking-widest block mb-0.5 font-campanha">ESF</span>
+                                                <span
+                                                    class="text-xs md:text-sm font-bold text-white uppercase leading-tight block text-shadow font-campanha">Ulisses</span>
+                                            </div>
+                                        </div>
+                                    </a>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato" class="page-section pb-20 bg-peocon-sand/20">
+            <div class="max-w-4xl mx-auto px-4 reveal pt-20">
+                <div
+                    class="glass-earth p-10 md:p-16 shadow-2xl rounded-[3rem] bg-white/50 border border-peocon-earth/20 backdrop-blur-md">
+                    <div class="text-center mb-12">
+                        <h2 class="text-4xl font-heading font-bold text-ha-dark mb-4">Fale Conosco</h2>
+                        <p class="text-peocon-muted text-lg">
+                            Estamos prontos para atender você. Entre em contato pelo WhatsApp ou venha nos visitar.
+                        </p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-8 items-center justify-center">
+                        <a href="https://wa.me/551733210384" target="_blank"
+                            class="bg-white/50 p-10 rounded-3xl hover:bg-white transition-all border border-white text-center group cursor-pointer hover:shadow-lg h-full flex flex-col justify-center block">
+                            <div
+                                class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6 text-green-600 shadow-inner mx-auto group-hover:scale-110 transition-transform">
+                                <i class="ph-fill ph-whatsapp-logo text-3xl"></i>
+                            </div>
+                            <h3 class="font-bold text-ha-dark text-lg uppercase tracking-wide mb-2">WhatsApp</h3>
+                            <p class="text-peocon-muted text-sm mb-6">Atendimento rápido e agendamentos.</p>
+                            <div
+                                class="inline-flex items-center justify-center gap-2 bg-green-500 text-white px-6 py-3 rounded-xl font-bold font-ui group-hover:bg-green-600 transition shadow-md w-full">
+                                Abrir WhatsApp <i class="ph-bold ph-arrow-right"></i>
+                            </div>
+                        </a>
+
+                        <a href="https://www.google.com/maps/search/?api=1&query=Pavilhão+Jorge+e+Mateus+Hospital+de+Amor+Barretos"
+                            target="_blank"
+                            class="bg-white/50 p-10 rounded-3xl hover:bg-white transition-all border border-white text-center group cursor-pointer hover:shadow-lg h-full flex flex-col justify-center block">
+                            <div
+                                class="w-16 h-16 bg-peocon-clay/10 rounded-full flex items-center justify-center mb-6 text-peocon-clay shadow-inner mx-auto group-hover:scale-110 transition-transform">
+                                <i class="ph-fill ph-map-pin text-3xl"></i>
+                            </div>
+                            <h3 class="font-bold text-ha-dark text-lg uppercase tracking-wide mb-2">Localização</h3>
+                            <p class="text-peocon-muted text-sm mb-6">Pavilhão Jorge e Mateus<br>Hospital de Amor</p>
+                            <div
+                                class="inline-flex items-center justify-center gap-2 bg-peocon-clay text-white px-6 py-3 rounded-xl font-bold font-ui group-hover:bg-ha-dark transition shadow-md w-full">
+                                Ver no Mapa <i class="ph-bold ph-arrow-up-right"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="border-t border-peocon-earth/20 py-16 relative z-10 bg-peocon-sand/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                <div class="flex flex-col items-start gap-4">
+                    <div class="flex items-center gap-2 opacity-80 hover:opacity-100 transition hover:scale-105">
+
+                        <img src="./assets/Peocon_vertical.png" alt="PEOCON Logo" class="h-24 w-auto object-contain">
+
+                    </div>
+                    <p class="text-sm text-peocon-muted max-w-xs">Promovendo equidade racial e acesso à saúde através da
+                        tecnologia e afeto.</p>
+                </div>
+            </div>
+            <div
+                class="border-t border-peocon-earth/10 mt-10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs font-bold text-peocon-muted/50 uppercase tracking-widest">
+                <p>© 2025 Projeto PEOCON.</p>
+                <p>Hospital de Amor Barretos</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="map-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-8">
+        <div class="absolute inset-0 bg-ha-dark/80 backdrop-blur-sm cursor-pointer transition-opacity"
+            onclick="closeMapModal()"></div>
+
+        <div class="relative w-full max-w-6xl h-[85vh] bg-white rounded-[2rem] overflow-hidden shadow-2xl flex flex-col transform transition-all duration-300 scale-95 opacity-0"
+            id="map-content">
+            <div class="flex justify-between items-center p-4 sm:p-6 border-b border-gray-100 bg-white z-10">
+                <div class="flex items-center gap-3">
+                    <div
+                        class="w-8 h-8 rounded-full bg-abrace-roxo/10 flex items-center justify-center text-abrace-roxo">
+                        <i class="ph-fill ph-map-pin"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-heading font-bold text-ha-dark text-lg leading-tight">Mapa de Atuação</h3>
+                        <p class="text-[10px] text-peocon-muted font-ui uppercase tracking-widest">Campanha Abrace a
+                            Vida</p>
+                    </div>
+                </div>
+                <button onclick="closeMapModal()"
+                    class="w-10 h-10 rounded-full bg-gray-50 hover:bg-red-50 hover:text-red-500 flex items-center justify-center transition-colors group">
+                    <i class="ph-bold ph-x text-lg text-gray-400 group-hover:text-red-500"></i>
+                </button>
+            </div>
+
+            <div class="flex-grow relative bg-gray-100">
+                <iframe src="https://www.google.com/maps/d/embed?mid=1v7ets_tO1LmgOkHgS0i28To1xle4RLM" width="100%"
+                    height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+
+            <div class="bg-abrace-offwhite p-3 text-center border-t border-abrace-bege">
+                <a href="https://www.google.com/maps/d/viewer?mid=1v7ets_tO1LmgOkHgS0i28To1xle4RLM" target="_blank"
+                    class="text-xs font-bold text-abrace-roxo hover:text-abrace-verde transition font-campanha uppercase tracking-wider flex items-center justify-center gap-2">
+                    Abrir no Google Maps <i class="ph-bold ph-arrow-up-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
